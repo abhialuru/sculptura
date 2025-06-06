@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cinzel, Open_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import ReactLenis from "lenis/react";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const playfair = Playfair_Display({
   subsets: ["latin"],
+  variable: "--font-playfair-display",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const opensans = Open_Sans({
   subsets: ["latin"],
+  variable: "--font-open-sans",
+});
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  variable: "--font-cinzel",
 });
 
 export const metadata: Metadata = {
@@ -24,11 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <ReactLenis root>
+        <body
+          className={`${opensans.className} ${playfair.variable} ${cinzel.variable} antialiased`}
+        >
+          {children}
+        </body>
+      </ReactLenis>
     </html>
   );
 }
