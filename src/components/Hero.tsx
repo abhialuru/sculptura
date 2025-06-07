@@ -1,7 +1,14 @@
 "use client";
-import React, { useRef } from "react";
+import {
+  AnimatePresence,
+  easeIn,
+  motion,
+  useScroll,
+  useTransform,
+} from "motion/react";
+import { useRef, useState } from "react";
+import Modal from "./Modal";
 import Navbar from "./Navbar";
-import { easeIn, motion, useScroll, useTransform } from "motion/react";
 
 function Hero() {
   const containerRef = useRef(null);
@@ -27,9 +34,14 @@ function Hero() {
     },
   };
 
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <main id="hero" ref={containerRef} className="w-full h-auto">
       <Navbar />
+      <AnimatePresence mode="wait">
+        {showModal && <Modal onClose={() => setShowModal(false)} />}
+      </AnimatePresence>
       <div className="w-full flex flex-col gap-10 justify-center items-center my-[80px]">
         <h1 className="text-4xl  font-playfair  flex flex-col gap-1 text-center">
           <span className="relative inline-flex overflow-hidden leading-[120%]">
@@ -62,6 +74,7 @@ function Hero() {
             ease: easeIn,
           }}
           className="w-[250px] py-3 border rounded-lg"
+          onClick={() => setShowModal(true)}
         >
           Start Designing
         </motion.button>

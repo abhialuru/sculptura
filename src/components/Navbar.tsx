@@ -1,8 +1,8 @@
-import { easeIn, hover, number } from "motion";
+import { easeIn } from "motion";
 import { AnimatePresence, motion } from "motion/react";
-import { li } from "motion/react-client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import Modal from "./Modal";
 
 function Navbar() {
   const slideUp = {
@@ -73,6 +73,8 @@ function Navbar() {
     };
   }, [openMenu]);
 
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <motion.nav
       variants={slideUp}
@@ -81,6 +83,9 @@ function Navbar() {
       viewport={{ once: true }}
       className="w-full h-auto"
     >
+      <AnimatePresence mode="wait">
+        {showModal && <Modal onClose={() => setShowModal(false)} />}
+      </AnimatePresence>
       <div className="w-full h-auto flex flex-row-reverse md:flex-row justify-between items-center pt-5 px-5">
         <button
           onClick={() => setOpenMenu(!openMenu)}
@@ -102,7 +107,10 @@ function Navbar() {
           <span className="hidden md:block">{openMenu ? "Close" : "Menu"}</span>
         </button>
         <p className="font-cinzel z-40">SCULPTURA INTERIORS</p>
-        <button className="w-[120px] hidden md:inline-block border border-black text-black rounded-full py-1.5 z-40">
+        <button
+          onClick={() => setShowModal(true)}
+          className="w-[120px] hidden md:inline-block border border-black text-black rounded-full py-1.5 z-40"
+        >
           Contact us
         </button>
       </div>
@@ -118,12 +126,17 @@ function Navbar() {
             <ul className="flex flex-col gap-5 text-5xl font-light p-5 w-full h-full md:ml-40 justify-center">
               {["hero", "about", "projects", "services"].map((word, i) => (
                 <motion.li
+                  className="w-full"
                   key={i}
                   initial={{ x: 0 }}
                   whileHover={{ x: 20 }}
                   transition={{ duration: 0.6, ease: easeIn }}
                 >
-                  <Link onClick={() => setOpenMenu(false)} href={`#${word}`}>
+                  <Link
+                    className="w-full block"
+                    onClick={() => setOpenMenu(false)}
+                    href={`#${word}`}
+                  >
                     {word === "hero"
                       ? "Hero"
                       : word === "about"
@@ -135,9 +148,13 @@ function Navbar() {
                 </motion.li>
               ))}
             </ul>
-            <p className="absolute text-xl font-light bottom-0 right-0 p-5">
+            <Link
+              href="https://abhialuru.vercel.app"
+              target="_blank"
+              className="absolute text-xl font-light bottom-0 right-0 p-5"
+            >
               Website by abhialuru
-            </p>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

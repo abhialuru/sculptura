@@ -1,6 +1,6 @@
 "use client";
-import { easeIn, easeOut, motion, useAnimate } from "motion/react";
-import React, { useEffect } from "react";
+import { easeIn, easeOut, useAnimate } from "motion/react";
+import { useEffect } from "react";
 
 function Preloader() {
   const [scope, animate] = useAnimate();
