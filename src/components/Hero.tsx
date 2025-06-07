@@ -98,7 +98,16 @@ function Hero() {
           autoPlay
         />
       </motion.div>
-      <div className="h-[100vh] mx-auto p-5 mb-5 md:hidden">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          duration: 0.5,
+          delay: 4.2,
+          ease: easeIn,
+        }}
+        className="w-full h-[100vh] mx-auto p-5 mb-5 md:hidden"
+      >
         <video
           className="w-full h-full object-cover"
           src="/Interior.mp4"
@@ -106,7 +115,7 @@ function Hero() {
           muted
           autoPlay
         />
-      </div>
+      </motion.div>
     </main>
   );
 }
