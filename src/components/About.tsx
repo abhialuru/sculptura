@@ -2,9 +2,12 @@ import React from "react";
 
 function About() {
   return (
-    <section className="w-full p-5 flex justify-center items-center flex-col gap-5 py-10">
+    <section
+      id="about"
+      className="w-full p-5 flex justify-center items-center flex-col gap-5 py-10"
+    >
       <h1>ABOUT</h1>
-      <div className="w-[70%] text-4xl font-light">
+      <div className="w-full md:w-[90%] lg:w-[70%] text-2xl md:text-4xl font-light">
         Welcome to Sculptura Interiors, where design meets passion. We believe
         that interior spaces are more than just environments—they are
         reflections of who we are and how we live. Our team of dedicated

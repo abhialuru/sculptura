@@ -4,12 +4,12 @@ import React from "react";
 function Footer() {
   return (
     <footer className="w-full h-auto bg-[#1a1a1a] text-white mt-10">
-      <div className="w-full flex justify-center items-center text-8xl opacity-15 pt-10 font-cinzel">
+      <div className="w-full flex justify-center items-center text-4xl md:text-8xl opacity-15 pt-10 font-cinzel text-center">
         sculptura interiors
       </div>
-      <div className="flex px-20 w-full justify-between items-end opacity-90">
+      <div className="flex px-5 md:px-20 w-full justify-between items-end opacity-90">
         <div className="flex flex-col gap-4">
-          <h1 className="text-2xl flex flex-col font-playfair">
+          <h1 className="text-lg md:text-2xl flex flex-col font-playfair">
             <span>Transforming Spaces,</span>
             <span>Elevating Living</span>
           </h1>
@@ -20,7 +20,7 @@ function Footer() {
           </div>
         </div>
         <ul
-          className="text-lg flex flex-col gap-2
+          className="text-base md:text-lg flex flex-col gap-2
         "
         >
           <li>Home</li>

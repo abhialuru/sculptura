@@ -1,25 +1,25 @@
 "use client";
-import { motion } from "motion/react";
-import Image from "next/image";
-import React from "react";
 import ServiceCard from "./ServiceCard";
 
 function Services() {
   return (
-    <section className="w-full p-5 py-10 flex flex-col items-center gap-10">
+    <section
+      id="services"
+      className="w-full p-5 py-10 flex flex-col items-center gap-10"
+    >
       <h1>SERVICES</h1>
-      <div className="w-full flex gap-10">
-        <h2 className="w-[40%] text-2xl font-playfair">
+      <div className="w-full flex flex-col md:flex-row gap-10">
+        <h2 className="w-full md:w-[40%] text-2xl font-playfair">
           Design solutions tailored to your space, style, and lifestyle
         </h2>
-        <p className="w-[60%]">
+        <p className="w-full md:w-[60%]">
           We offer a full range of interior design services to bring your vision
           to life—from concept to completion. Whether you're redesigning a
           single room or renovating your entire home, we craft personalized
           spaces that are both functional and beautiful.
         </p>
       </div>
-      <div className="w-full flex gap-2">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:flex gap-2">
         <ServiceCard
           heading="3D Visualization and space Planning"
           description="See your space before it's built with realistic 3D renders and smart layouts that maximize every square foot.

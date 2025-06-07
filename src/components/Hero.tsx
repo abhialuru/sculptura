@@ -28,7 +28,7 @@ function Hero() {
   };
 
   return (
-    <main ref={containerRef} className="w-full h-auto ">
+    <main id="hero" ref={containerRef} className="w-full h-auto">
       <Navbar />
       <div className="w-full flex flex-col gap-10 justify-center items-center my-[80px]">
         <h1 className="text-4xl  font-playfair  flex flex-col gap-1 text-center">
@@ -75,7 +75,7 @@ function Hero() {
           ease: easeIn,
         }}
         style={{ width: width }}
-        className=" h-[100vh] mx-auto p-5 mb-5"
+        className="h-[100vh] mx-auto p-5 mb-5 hidden md:block"
       >
         <video
           className="w-full h-full object-cover"
@@ -85,6 +85,15 @@ function Hero() {
           autoPlay
         />
       </motion.div>
+      <div className="h-[100vh] mx-auto p-5 mb-5 md:hidden">
+        <video
+          className="w-full h-full object-cover"
+          src="/Interior.mp4"
+          loop
+          muted
+          autoPlay
+        />
+      </div>
     </main>
   );
 }
