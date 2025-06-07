@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <ReactLenis root>
         <body
-          className={`${opensans.className} ${playfair.variable} ${cinzel.variable} antialiased overflow-hidden`}
+          className={`${opensans.className} ${playfair.variable} ${cinzel.variable} antialiased lg:overflow-hidden`}
         >
           {children}
         </body>
